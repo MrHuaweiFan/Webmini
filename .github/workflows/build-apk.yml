@@ -38,10 +38,12 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Decode signing keystore
-        if: ${{ secrets.WEBMINI_KEYSTORE_BASE64 != '' }}
+        env:
+          WEBMINI_KEYSTORE_BASE64: ${{ secrets.WEBMINI_KEYSTORE_BASE64 }}
+        if: env.WEBMINI_KEYSTORE_BASE64 != ''
         run: |
           mkdir -p $HOME/.keystore
-          echo "${{ secrets.WEBMINI_KEYSTORE_BASE64 }}" | base64 -d > $HOME/.keystore/webmini-release.keystore
+          echo "$WEBMINI_KEYSTORE_BASE64" | base64 -d > $HOME/.keystore/webmini-release.keystore
           echo "WEBMINI_KEYSTORE=$HOME/.keystore/webmini-release.keystore" >> $GITHUB_ENV
           echo "WEBMINI_KEYSTORE_PASSWORD=${{ secrets.WEBMINI_KEYSTORE_PASSWORD }}" >> $GITHUB_ENV
           echo "WEBMINI_KEY_ALIAS=${{ secrets.WEBMINI_KEY_ALIAS }}" >> $GITHUB_ENV
