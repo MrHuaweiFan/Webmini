@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tablet dark mode overrides: #0F0F0F instead of #000000.
+         w600dp = smallest width >= 600dp = tablet.
+         Phone dark mode uses values-night/colors.xml (#000000). -->
+    <color name="md_background">#0F0F0F</color>
+    <color name="md_surface">#0F0F0F</color>
+    <color name="status_bar_bg">#0F0F0F</color>
+</resources>

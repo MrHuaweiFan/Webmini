@@ -1,0 +1,5 @@
+What's new
+
+- New private signing key (old public key replaced for security)
+- Status bar / loading screen colors: #FCFCFC (light), #000000 (dark phone + tablet portrait), #0F0F0F (dark tablet landscape)
+- READ_PHONE_STATE permission removed
