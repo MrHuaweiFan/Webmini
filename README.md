@@ -46,10 +46,6 @@ echo "sdk.dir=$HOME/Android/Sdk" > local.properties
 # APK lands in app/build/outputs/apk/debug/app-debug.apk
 ```
 
-## Signing
-
-The release APK is signed with `app/test.keystore` (alias `test`, password `test123`). This is fine for personal use, but the key is public — for production, replace it with your own.
-
 ## How blob: URL downloads work
 
 Android WebView's `DownloadListener` only gives Java a URL string. For `blob:` URLs (especially `blob:null/...` created in sandboxed iframes), Java can't fetch the blob directly. This app uses `WebViewCompat.addDocumentStartJavaScript` (androidx.webkit 1.12+) to inject a blob-capture script into **every frame** at document creation time. The script:
